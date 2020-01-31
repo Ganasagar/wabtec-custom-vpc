@@ -261,7 +261,8 @@ module "dcos-install" {
   version = "~> 0.2.0"
 
   # bootstrap
-  bootstrap_ip         = "${local.bootstrap_ip}"
+#  bootstrap_ip         = "${local.bootstrap_ip}"
+  bootstrap_ip         = "${coalesce(local.bootstrap_ip,local.bootstrap_private_ip)}"
   bootstrap_private_ip = "${local.bootstrap_private_ip}"
   bootstrap_os_user    = "${local.bootstrap_os_user}"
 
